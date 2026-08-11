@@ -1,6 +1,5 @@
 package com.homeenergytracker.device_service;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +24,7 @@ class DeviceServiceApplicationTests {
 	}
 
 
-	@Disabled
+	
 	@Test
 	void createDevices(){
 		for(int i=1;i<=NUMBER_OF_DEVICES;i++){

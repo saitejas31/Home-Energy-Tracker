@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.homeenergytracker.device_service.dto.DeviceDto;
 import com.homeenergytracker.device_service.service.DeviceService;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -59,6 +61,15 @@ public class DeviceController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<DeviceDto>> getAllDevicesByUserId(
+        @PathVariable Long userId){
+            List<DeviceDto> deviceDtos = deviceService.getAllDevicesByUserId(userId);
+            return ResponseEntity.ok(deviceDtos);
+        }
+
+
     
     
 

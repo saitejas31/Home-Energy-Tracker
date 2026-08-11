@@ -18,7 +18,6 @@ public class IngestionController {
     @PostMapping
     @ResponseStatus(org.springframework.http.HttpStatus.CREATED)
     public void ingestData(@RequestBody EnergyUsageDto energyUsageDto) {
-        System.out.println("hello inside controler");
         ingestionService.ingestEnergyUsage(energyUsageDto);
     }
 }

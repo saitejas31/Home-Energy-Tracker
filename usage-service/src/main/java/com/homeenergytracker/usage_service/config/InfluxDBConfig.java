@@ -1,4 +1,4 @@
-package com.homeenergytracker.usage_service.service.config;
+package com.homeenergytracker.usage_service.config;
 
 import com.influxdb.client.InfluxDBClient;
 import com.influxdb.client.InfluxDBClientFactory;

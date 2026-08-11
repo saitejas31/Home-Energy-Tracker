@@ -1,0 +1,30 @@
+package com.homeenergytracker.usage_service.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import com.homeenergytracker.usage_service.dto.UsageDto;
+import com.homeenergytracker.usage_service.service.UsageService;
+
+
+
+@RestController
+@RequestMapping("/api/v1/usage")
+public class UsageControler {
+
+    private final UsageService usageService;
+
+    public UsageControler(UsageService usageService){
+        this.usageService = usageService;
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<UsageDto> getXDaysUsageForUser(@PathVariable Long userId,@RequestParam(defaultValue = "3") int days){
+        final UsageDto usageDto = usageService.getXDaysUsageForUser(userId,days);
+        return ResponseEntity.ok(usageDto);
+    }
+
+}

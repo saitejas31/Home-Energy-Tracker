@@ -22,7 +22,6 @@ class UserServiceApplicationTests {
 	void contextLoads() {
 	}
 
-	@Disabled
 	@Test
 	void addUsers(){
 		for(int i=1;i<=NUMBER_OF_USERS;i++){

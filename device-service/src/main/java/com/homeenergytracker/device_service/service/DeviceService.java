@@ -1,5 +1,7 @@
 package com.homeenergytracker.device_service.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.homeenergytracker.device_service.dto.DeviceDto;
@@ -72,6 +74,13 @@ public class DeviceService {
         .location(device.getLocation())
         .userId(device.getUserId())
         .build();
+    }
+
+    public List<DeviceDto> getAllDevicesByUserId(Long userId) {
+       List<Device> devices = deviceRepository.findAllByUserId(userId);
+       return devices.stream()
+                .map(this::mapToDto)
+                .toList();
     }
 
 }

@@ -36,7 +36,10 @@ public class ContinuousDataSimulator implements CommandLineRunner {
     }
 
 
-    @Scheduled(fixedRateString = "${simulation.interval-ms}")
+    // TODO: Re-enable this scheduler for load/demo testing. Requires Kafka and ingestion-service running.
+    // When enabled, fires at the configured interval and sends `requestsPerInterval` mock events.
+    // Caution: requestsPerInterval is currently set to 10,000 — lower this before enabling in dev.
+    // @Scheduled(fixedRateString = "${simulation.interval-ms}")
     public void sendMockData() {
         for (int i = 0; i < requestsPerInterval; i++) {
             EnergyUsageDto dto = EnergyUsageDto.builder()

@@ -1,7 +1,24 @@
+# Secrets / local env
 .env
+
+# IDEs
 .idea/
 .vscode/
+
+# Build artifacts
 **/target/
 **/build/
 **/*.log
 **/*.tmp
+
+# Docker volume bind-mounts (local data, not for version control)
+influxdb_data/
+volume-data/
+docker/kafka_data/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Prompt/planning files
+home-energy-tracker-claude-code-prompt.md

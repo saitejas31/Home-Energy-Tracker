@@ -1,4 +1,15 @@
+package com.homeenergytracker.alert_service.service;
+
+import com.homeenergytracker.alert_service.entity.Alert;
 import com.homeenergytracker.alert_service.repository.AlertRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 @Slf4j
