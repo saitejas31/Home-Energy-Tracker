@@ -63,7 +63,6 @@ POST /api/v1/ingestion
 | API Gateway | Spring Cloud Gateway MVC |
 | Resilience | Resilience4j (circuit breaker, retry) |
 | Email (dev) | Mailpit (SMTP mock) |
-| Auth | Keycloak 24 *(configured, not yet integrated in services)* |
 | Observability | Micrometer + Prometheus actuator endpoints *(Grafana stack not yet wired)* |
 | Containerisation | Docker Compose |
 | Build | Maven, Java 21 |
@@ -119,14 +118,13 @@ ollama pull llama2
 docker compose up -d
 ```
 
-This starts: MySQL, Kafka (KRaft), Kafka UI, InfluxDB, Mailpit, Keycloak.
+This starts: MySQL, Kafka (KRaft), Kafka UI, InfluxDB, Mailpit.
 
 | UI | URL |
 |---|---|
 | Kafka UI | http://localhost:8070 |
 | InfluxDB | http://localhost:8072 |
 | Mailpit (email preview) | http://localhost:8025 |
-| Keycloak admin | http://localhost:8091 |
 
 ### 4. Start services (each in a separate terminal)
 
@@ -192,7 +190,6 @@ Known limitations and in-progress items:
 
 | Area | Status |
 |---|---|
-| **Keycloak / JWT auth** | Container configured, realm mounted — **not yet wired into service code or gateway JWT validation** |
 | **Grafana / Prometheus** | Actuator endpoints enabled in usage-service and insight-service — Prometheus/Grafana containers not yet in docker-compose |
 | **Ollama** | Requires local Ollama install + `ollama pull llama2`; no container in compose |
 | **Tests** | Only Spring context-load tests exist; no unit or integration tests yet |
@@ -205,7 +202,6 @@ Known limitations and in-progress items:
 
 ## Roadmap
 
-- [ ] Wire Keycloak JWT validation into API gateway and downstream services
 - [ ] Add Prometheus + Grafana to docker-compose
 - [ ] Add Ollama to docker-compose (sidecar container)
 - [ ] Replace per-device REST calls in usage-service with a batch `/device/batch` endpoint
@@ -224,7 +220,7 @@ Known limitations and in-progress items:
 Home-Energy-Tracker/
 ├── docker/
 │   ├── mysql/init.sql          # DB initialisation
-│   └── keycloak/realms/        # Keycloak realm import
+│   └── keycloak/realms/        # Keycloak realm import (coming soon)
 ├── docker-compose.yml
 ├── user-service/
 ├── device-service/
