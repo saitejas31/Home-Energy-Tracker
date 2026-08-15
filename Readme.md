@@ -233,19 +233,4 @@ Home-Energy-Tracker/
 
 Each service folder is a self-contained Spring Boot Maven project.
 
----
 
-## Branch Strategy
-
-This is a **monorepo** with one `.git` root. Branches are named after services and each contains the full repository state at the time of that service's latest commit. All branches currently point to the same tip commit.
-
-| Branch | Remote |
-|---|---|
-| `main` | default / README |
-| `user-service` | ✅ pushed |
-| `device-service` | ✅ pushed |
-| `ingestion-service` | ✅ pushed |
-| `usage-service` | ✅ pushed |
-| `alert-service` | ✅ pushed |
-| `insight-service` | ✅ pushed |
-| `api-gateway` | ✅ pushed |
